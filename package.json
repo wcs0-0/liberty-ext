@@ -1,0 +1,35 @@
+{
+  "name": "liberty",
+  "displayName": "Liberty (.lib)",
+  "description": "Basic language support (syntax highlighting & brace folding) for Liberty (.lib) files.",
+  "version": "0.0.1",
+  "publisher": "wangchunshan",
+  "icon": "icon.svg",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "liberty",
+        "aliases": [
+          "Liberty"
+        ],
+        "extensions": [
+          ".lib"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "liberty",
+        "scopeName": "source.liberty",
+        "path": "./syntaxes/liberty.tmLanguage.json"
+      }
+    ]
+  }
+}
