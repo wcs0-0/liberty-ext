@@ -1,32 +1,35 @@
 {
+  // Liberty 使用 C 风格注释：/* ... */
   "comments": {
-    "lineComment": "//",
     "blockComment": ["/*", "*/"]
   },
 
+  // 括号对：用于匹配块结构和折叠
   "brackets": [
     ["{", "}"],
-    ["(", ")"]
+    ["(", ")"],
+    ["[", "]"]
   ],
 
+  // 自动补全成对符号
   "autoClosingPairs": [
     { "open": "{", "close": "}" },
     { "open": "(", "close": ")" },
-    { "open": "\"", "close": "\"" },
-    { "open": "/*", "close": "*/" }
+    { "open": "[", "close": "]" },
+    { "open": "\"", "close": "\"", "notIn": ["string"] },
+    { "open": "/*", "close": "*/", "notIn": ["string"] }
   ],
 
+  // 选中/包裹时的成对符号
   "surroundingPairs": [
     ["{", "}"],
     ["(", ")"],
+    ["[", "]"],
     ["\"", "\""]
   ],
 
+  // 折叠设置：offSide=false 表示主要依赖括号而不是缩进
   "folding": {
-    "offSide": false,
-    "markers": {
-      "start": "^\\s*#region\\b",
-      "end": "^\\s*#endregion\\b"
-    }
+    "offSide": false
   }
 }
