@@ -1,9 +1,15 @@
 {
   "scopeName": "source.liberty",
   "name": "Synopsys Liberty",
+
+  "fileTypes": ["lib"],
+
+  "foldingStartMarker": "\\{\\s*$",
+  "foldingStopMarker": "^\\s*\\}",
+
   "patterns": [
     { "include": "#comments" },
-    { "include": "#keywords" },
+    { "include": "#groups" },
     { "include": "#attributes" },
     { "include": "#numbers" },
     { "include": "#strings" },
@@ -11,19 +17,17 @@
   ],
 
   "repository": {
-
     "comments": {
       "patterns": [
-        {
-          "name": "comment.line.double-slash.liberty",
-          "match": "//.*$"
-        },
         {
           "name": "comment.block.liberty",
           "begin": "/\\*",
           "end": "\\*/",
           "patterns": [
-            { "match": ".+", "name": "comment.block.content.liberty" }
+            {
+              "match": "\\b(TODO|FIXME|XXX)\\b",
+              "name": "keyword.other.todo.liberty"
+            }
           ]
         }
       ]
@@ -36,7 +40,10 @@
           "begin": "\"",
           "end": "\"",
           "patterns": [
-            { "match": "\\\\.", "name": "constant.character.escape.liberty" }
+            {
+              "match": "\\\\.",
+              "name": "constant.character.escape.liberty"
+            }
           ]
         }
       ]
@@ -51,11 +58,11 @@
       ]
     },
 
-    "keywords": {
+    "groups": {
       "patterns": [
         {
-          "name": "keyword.control.liberty",
-          "match": "\\b(library|cell|pin|bus|bundle|timing|lu_table_template|power|leakage_power|internal_power|ff|latch|table|group)\\b"
+          "name": "keyword.declaration.group.liberty",
+          "match": "\\b(library|cell|pin|pg_pin|bus|bundle|timing|lu_table_template|power|leakage_power|internal_power|operating_conditions|wire_load|wire_load_selection|power_lut_template|constraint_lut_template|ff|latch|type|test_cell)\\b"
         }
       ]
     },
@@ -63,8 +70,8 @@
     "attributes": {
       "patterns": [
         {
-          "name": "variable.parameter.liberty",
-          "match": "\\b(area|direction|capacitance|max_transition|min_transition|related_pin|function|rise_constraint|fall_constraint|rise_transition|fall_transition|index_1|index_2|values|timing_sense|timing_type|clock|enable|next_state)\\b"
+          "name": "variable.parameter.attribute.liberty",
+          "match": "\\b(area|direction|capacitance|rise_capacitance|fall_capacitance|max_transition|min_transition|related_pin|related_power_pin|related_ground_pin|function|timing_sense|timing_type|cell_leakage_power|voltage_unit|current_unit|time_unit|pulling_resistance_unit|leakage_power_unit|capacitive_load_unit|index_1|index_2|index_3|values|cell_rise|cell_fall|rise_transition|fall_transition|rise_propagation|fall_propagation)\\b"
         }
       ]
     },
@@ -88,17 +95,28 @@
           "match": "\\)"
         },
         {
-          "name": "punctuation.terminator.statement.liberty",
-          "match": ";"
+          "name": "punctuation.section.brackets.begin.liberty",
+          "match": "\\["
+        },
+        {
+          "name": "punctuation.section.brackets.end.liberty",
+          "match": "\\]"
+        },
+        {
+          "name": "punctuation.separator.comma.liberty",
+          "match": ","
         },
         {
           "name": "punctuation.separator.key-value.liberty",
           "match": ":"
+        },
+        {
+          "name": "punctuation.terminator.statement.liberty",
+          "match": ";"
         }
       ]
     }
   },
 
-  "fileTypes": ["lib"],
-  "uuid": "d0a53e20-ffff-4000-8888-1234567890ab"
+  "uuid": "e3c6b8a0-9f5a-4c89-9a11-5f4c5a0a0001"
 }
