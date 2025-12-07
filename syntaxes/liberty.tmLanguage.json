@@ -1,0 +1,104 @@
+{
+  "scopeName": "source.liberty",
+  "name": "Synopsys Liberty",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#keywords" },
+    { "include": "#attributes" },
+    { "include": "#numbers" },
+    { "include": "#strings" },
+    { "include": "#punctuation" }
+  ],
+
+  "repository": {
+
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.liberty",
+          "match": "//.*$"
+        },
+        {
+          "name": "comment.block.liberty",
+          "begin": "/\\*",
+          "end": "\\*/",
+          "patterns": [
+            { "match": ".+", "name": "comment.block.content.liberty" }
+          ]
+        }
+      ]
+    },
+
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.liberty",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            { "match": "\\\\.", "name": "constant.character.escape.liberty" }
+          ]
+        }
+      ]
+    },
+
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.liberty",
+          "match": "\\b[+-]?(?:\\d+\\.\\d*|\\d*\\.\\d+|\\d+)(?:[eE][+-]?\\d+)?\\b"
+        }
+      ]
+    },
+
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.liberty",
+          "match": "\\b(library|cell|pin|bus|bundle|timing|lu_table_template|power|leakage_power|internal_power|ff|latch|table|group)\\b"
+        }
+      ]
+    },
+
+    "attributes": {
+      "patterns": [
+        {
+          "name": "variable.parameter.liberty",
+          "match": "\\b(area|direction|capacitance|max_transition|min_transition|related_pin|function|rise_constraint|fall_constraint|rise_transition|fall_transition|index_1|index_2|values|timing_sense|timing_type|clock|enable|next_state)\\b"
+        }
+      ]
+    },
+
+    "punctuation": {
+      "patterns": [
+        {
+          "name": "punctuation.section.braces.begin.liberty",
+          "match": "\\{"
+        },
+        {
+          "name": "punctuation.section.braces.end.liberty",
+          "match": "\\}"
+        },
+        {
+          "name": "punctuation.section.parens.begin.liberty",
+          "match": "\\("
+        },
+        {
+          "name": "punctuation.section.parens.end.liberty",
+          "match": "\\)"
+        },
+        {
+          "name": "punctuation.terminator.statement.liberty",
+          "match": ";"
+        },
+        {
+          "name": "punctuation.separator.key-value.liberty",
+          "match": ":"
+        }
+      ]
+    }
+  },
+
+  "fileTypes": ["lib"],
+  "uuid": "d0a53e20-ffff-4000-8888-1234567890ab"
+}
