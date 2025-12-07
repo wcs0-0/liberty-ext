@@ -4,7 +4,7 @@
   "description": "Basic language support (syntax highlighting & brace folding) for Liberty (.lib) files.",
   "version": "0.0.1",
   "publisher": "wangchunshan",
-  "icon": "icon.svg",
+  "icon": "icon.png",
   "engines": {
     "vscode": "^1.70.0"
   },
@@ -33,3 +33,4 @@
     ]
   }
 }
+
